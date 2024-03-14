@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="TestCases.TestCases_of_CICA">
+        <methods>
+          <include name="Step_2"/>
+          <include name="Step_10"/>
+          <include name="Step_4"/>
+          <include name="Step_1"/>
+          <include name="Homepage"/>
+          <include name="Update"/>
+          <include name="Login"/>
+          <include name="ExtentReportSetup1"/>
+          <include name="chromeLaunch"/>
+          <include name="teardown1"/>
+          <include name="Step_7"/>
+          <include name="Step_6"/>
+          <include name="Step_3"/>
+          <include name="email_verify"/>
+          <include name="Step_8"/>
+          <include name="Step_5"/>
+        </methods>
+      </class> <!-- TestCases.TestCases_of_CICA -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
