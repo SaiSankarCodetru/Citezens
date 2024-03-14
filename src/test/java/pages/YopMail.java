@@ -27,6 +27,11 @@ public class YopMail {
 		this.e = e;
 	}
 	public void validate_mail() throws Exception {
+		driver.switchTo().parentFrame();
+		Thread.sleep(2000);
+		driver.findElement(By.id("ReceiptEmail")).sendKeys("cicalife_001@yopmail.com");
+		Thread.sleep(1000);
+		driver.findElement(By.id("sendReceipt")).click();
 		driver.switchTo().newWindow(WindowType.TAB);
 		driver.get("https://yopmail.com/");
 		driver.findElement(By.id("login")).sendKeys("cicalife_001@yopmail.com");
