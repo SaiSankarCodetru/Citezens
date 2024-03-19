@@ -5,22 +5,10 @@
     <classes>
       <class name="TestCases.TestCases_of_CICA">
         <methods>
-          <include name="Step_2"/>
-          <include name="Step_10"/>
-          <include name="Step_4"/>
-          <include name="Step_1"/>
-          <include name="Homepage"/>
-          <include name="Update"/>
-          <include name="Login"/>
-          <include name="ExtentReportSetup1"/>
-          <include name="chromeLaunch"/>
           <include name="teardown1"/>
-          <include name="Step_7"/>
-          <include name="Step_6"/>
-          <include name="Step_3"/>
-          <include name="email_verify"/>
-          <include name="Step_8"/>
-          <include name="Step_5"/>
+          <include name="ExtentReportSetup1"/>
+          <include name="application"/>
+          <include name="chromeLaunch"/>
         </methods>
       </class> <!-- TestCases.TestCases_of_CICA -->
     </classes>

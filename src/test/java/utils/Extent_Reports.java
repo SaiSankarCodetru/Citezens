@@ -5,6 +5,8 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.testng.SkipException;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
@@ -12,16 +14,16 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 
 
 public class Extent_Reports {
-WebDriver driver;
+	WebDriver driver;
 
-public Extent_Reports(WebDriver driver) {
-	this.driver = driver;
-}
+	public Extent_Reports(WebDriver driver) {
+		this.driver = driver;
+	}
 	public File file ;
 	public ExtentReports ext ;
 	public ExtentSparkReporter SparkReporter;
 	public ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");
-	public	ExtentTest test;
+	public ExtentTest test;
 
 	public void ExtentReportSetup() {
 
@@ -39,17 +41,31 @@ public Extent_Reports(WebDriver driver) {
 		test =	ext.createTest(details);
 		return test;
 	}
-	
+
 	public static String capturescreenshot(WebDriver driver) throws Exception {
 		File srcfile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		//File destinationfilepath=new File("C://Users//Codetru User 30//eclipse-workspace//laptop//Screenshots//"+System.currentTimeMillis()+".png"); 
+	//File destinationfilepath=new File("C://Users//Codetru User 30//eclipse-workspace//laptop//Screenshots//"+System.currentTimeMillis()+".png"); 
 		File destinationfilepath=new File(System.getProperty("user.dir")+"//Screenshots//"+System.currentTimeMillis()+".png"); 
 		String absolutepathlocation =destinationfilepath.getAbsolutePath();
 		FileUtils.copyFile(srcfile, destinationfilepath);
 		return absolutepathlocation;
 	}
-	
+
 	public void teardown() {
 		ext.flush();
+	}
+
+	public void someTestMethod() {
+		// You can add your condition to skip the test case here
+		if (conditionToSkipTest()) {
+			throw new SkipException("Skipping this test case as per condition.");
+		}
+		// Test case steps here
+	}
+
+	// Example condition to skip test
+	private boolean conditionToSkipTest() {
+		// Implement your condition here
+		return true; // Return true to skip the test case, false to execute it
 	}
 }

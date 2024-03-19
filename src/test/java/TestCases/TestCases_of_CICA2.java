@@ -119,7 +119,6 @@ public class TestCases_of_CICA2{
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--allow-running-insecure-content");
 		options.addArguments("--remote-allow-origins=*");
-		options.addArguments("--incognito");
 		driver = new ChromeDriver(options);
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();

@@ -1,10 +1,12 @@
 package TestCases;
 
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import com.google.common.base.Verify;
+
 import pages.*;
 import utils.Extent_Reports;
 import java.awt.Desktop;
@@ -97,15 +99,19 @@ public class TestCases_of_CICA{
 	}
 
 	@Test(priority=13)
-
 	public void email_verify() throws Exception{
-		YopMail validation= new YopMail(driver, Reports);
-		validation.validate_mail();
+		YopmailValidation validation= new YopmailValidation(driver, Reports);
+		validation.mail_validation() ;
+	}
+
+	@Test(priority = 14)
+	public void application() throws Exception {
+		Verify_application verify=new Verify_application(driver, Reports);
+		verify.f();
 	}
 
 	@BeforeTest
 	public void chromeLaunch() {
-
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--allow-running-insecure-content");
 		options.addArguments("--remote-allow-origins=*");
@@ -116,12 +122,11 @@ public class TestCases_of_CICA{
 		driver.get("https://cicaamericaqa.citizensinc.com/login");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));		
 	}
-
-	@AfterTest
-	public void closebrowser() throws Exception {
-		driver.quit();
-	}
-
+	//	@AfterTest
+	//	public void closebrowser() throws Exception {
+	//		driver.quit();
+	//	}
+	//
 	@AfterSuite
 	public void teardown1() throws Exception {
 		Reports.teardown();

@@ -1,73 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="13" passed="13" failed="0" skipped="0">
+<testng-results ignored="0" total="14" passed="14" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-14T12:30:09 IST" name="Default suite" finished-at="2024-03-14T12:39:12 IST" duration-ms="543244">
+  <suite started-at="2024-03-19T17:54:28 IST" name="Default suite" finished-at="2024-03-19T18:03:55 IST" duration-ms="566847">
     <groups>
     </groups>
-    <test started-at="2024-03-14T12:30:09 IST" name="Default test" finished-at="2024-03-14T12:39:12 IST" duration-ms="543244">
+    <test started-at="2024-03-19T17:54:28 IST" name="Default test" finished-at="2024-03-19T18:03:55 IST" duration-ms="566847">
       <class name="TestCases.TestCases_of_CICA">
-        <test-method is-config="true" signature="ExtentReportSetup1()[pri:0, instance:TestCases.TestCases_of_CICA@752325ad]" started-at="2024-03-14T12:30:09 IST" name="ExtentReportSetup1" finished-at="2024-03-14T12:30:09 IST" duration-ms="221" status="PASS">
+        <test-method is-config="true" signature="ExtentReportSetup1()[pri:0, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T17:54:28 IST" name="ExtentReportSetup1" finished-at="2024-03-19T17:54:28 IST" duration-ms="241" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ExtentReportSetup1 -->
-        <test-method is-config="true" signature="chromeLaunch()[pri:0, instance:TestCases.TestCases_of_CICA@752325ad]" started-at="2024-03-14T12:30:09 IST" name="chromeLaunch" finished-at="2024-03-14T12:31:20 IST" duration-ms="70792" status="PASS">
+        <test-method is-config="true" signature="chromeLaunch()[pri:0, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T17:54:28 IST" name="chromeLaunch" finished-at="2024-03-19T17:55:00 IST" duration-ms="31374" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- chromeLaunch -->
-        <test-method signature="Login()[pri:1, instance:TestCases.TestCases_of_CICA@752325ad]" started-at="2024-03-14T12:31:20 IST" name="Login" finished-at="2024-03-14T12:31:23 IST" duration-ms="3101" status="PASS">
+        <test-method signature="Login()[pri:1, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T17:55:00 IST" name="Login" finished-at="2024-03-19T17:55:03 IST" duration-ms="3808" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="Homepage()[pri:2, instance:TestCases.TestCases_of_CICA@752325ad]" started-at="2024-03-14T12:31:23 IST" name="Homepage" finished-at="2024-03-14T12:31:40 IST" duration-ms="17180" status="PASS">
+        <test-method signature="Homepage()[pri:2, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T17:55:03 IST" name="Homepage" finished-at="2024-03-19T17:55:23 IST" duration-ms="19402" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Homepage -->
-        <test-method signature="Step_1()[pri:3, instance:TestCases.TestCases_of_CICA@752325ad]" started-at="2024-03-14T12:31:40 IST" name="Step_1" finished-at="2024-03-14T12:32:32 IST" duration-ms="51822" status="PASS">
+        <test-method signature="Step_1()[pri:3, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T17:55:23 IST" name="Step_1" finished-at="2024-03-19T17:56:39 IST" duration-ms="75915" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Step_1 -->
-        <test-method signature="Step_2()[pri:4, instance:TestCases.TestCases_of_CICA@752325ad]" started-at="2024-03-14T12:32:32 IST" name="Step_2" finished-at="2024-03-14T12:33:43 IST" duration-ms="70852" status="PASS">
+        <test-method signature="Step_2()[pri:4, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T17:56:39 IST" name="Step_2" finished-at="2024-03-19T17:57:50 IST" duration-ms="71408" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Step_2 -->
-        <test-method signature="Step_3()[pri:5, instance:TestCases.TestCases_of_CICA@752325ad]" started-at="2024-03-14T12:33:43 IST" name="Step_3" finished-at="2024-03-14T12:33:50 IST" duration-ms="7375" status="PASS">
+        <test-method signature="Step_3()[pri:5, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T17:57:50 IST" name="Step_3" finished-at="2024-03-19T17:57:55 IST" duration-ms="5054" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Step_3 -->
-        <test-method signature="Step_4()[pri:6, instance:TestCases.TestCases_of_CICA@752325ad]" started-at="2024-03-14T12:33:50 IST" name="Step_4" finished-at="2024-03-14T12:35:14 IST" duration-ms="83785" status="PASS">
+        <test-method signature="Step_4()[pri:6, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T17:57:55 IST" name="Step_4" finished-at="2024-03-19T17:59:25 IST" duration-ms="89324" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Step_4 -->
-        <test-method signature="Step_5()[pri:7, instance:TestCases.TestCases_of_CICA@752325ad]" started-at="2024-03-14T12:35:14 IST" name="Step_5" finished-at="2024-03-14T12:35:20 IST" duration-ms="6112" status="PASS">
+        <test-method signature="Step_5()[pri:7, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T17:59:25 IST" name="Step_5" finished-at="2024-03-19T17:59:31 IST" duration-ms="6510" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Step_5 -->
-        <test-method signature="Step_6()[pri:8, instance:TestCases.TestCases_of_CICA@752325ad]" started-at="2024-03-14T12:35:20 IST" name="Step_6" finished-at="2024-03-14T12:35:43 IST" duration-ms="22530" status="PASS">
+        <test-method signature="Step_6()[pri:8, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T17:59:31 IST" name="Step_6" finished-at="2024-03-19T18:00:12 IST" duration-ms="40699" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Step_6 -->
-        <test-method signature="Step_7()[pri:9, instance:TestCases.TestCases_of_CICA@752325ad]" started-at="2024-03-14T12:35:43 IST" name="Step_7" finished-at="2024-03-14T12:35:47 IST" duration-ms="4323" status="PASS">
+        <test-method signature="Step_7()[pri:9, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T18:00:12 IST" name="Step_7" finished-at="2024-03-19T18:00:16 IST" duration-ms="4566" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Step_7 -->
-        <test-method signature="Step_8()[pri:10, instance:TestCases.TestCases_of_CICA@752325ad]" started-at="2024-03-14T12:35:47 IST" name="Step_8" finished-at="2024-03-14T12:36:25 IST" duration-ms="38152" status="PASS">
+        <test-method signature="Step_8()[pri:10, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T18:00:16 IST" name="Step_8" finished-at="2024-03-19T18:00:58 IST" duration-ms="41590" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Step_8 -->
-        <test-method signature="Update()[pri:11, instance:TestCases.TestCases_of_CICA@752325ad]" started-at="2024-03-14T12:36:25 IST" name="Update" finished-at="2024-03-14T12:36:38 IST" duration-ms="12830" status="PASS">
+        <test-method signature="Update()[pri:11, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T18:00:58 IST" name="Update" finished-at="2024-03-19T18:01:14 IST" duration-ms="15895" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Update -->
-        <test-method signature="Step_10()[pri:12, instance:TestCases.TestCases_of_CICA@752325ad]" started-at="2024-03-14T12:36:38 IST" name="Step_10" finished-at="2024-03-14T12:39:02 IST" duration-ms="143857" status="PASS">
+        <test-method signature="Step_10()[pri:12, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T18:01:14 IST" name="Step_10" finished-at="2024-03-19T18:03:39 IST" duration-ms="145193" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Step_10 -->
-        <test-method signature="email_verify()[pri:13, instance:TestCases.TestCases_of_CICA@752325ad]" started-at="2024-03-14T12:39:02 IST" name="email_verify" finished-at="2024-03-14T12:39:12 IST" duration-ms="10478" status="PASS">
+        <test-method signature="email_verify()[pri:13, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T18:03:39 IST" name="email_verify" finished-at="2024-03-19T18:03:51 IST" duration-ms="12280" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- email_verify -->
-        <test-method is-config="true" signature="teardown1()[pri:0, instance:TestCases.TestCases_of_CICA@752325ad]" started-at="2024-03-14T12:39:12 IST" name="teardown1" finished-at="2024-03-14T12:39:14 IST" duration-ms="1214" status="PASS">
+        <test-method signature="application()[pri:14, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T18:03:51 IST" name="application" finished-at="2024-03-19T18:03:55 IST" duration-ms="3764" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- application -->
+        <test-method is-config="true" signature="teardown1()[pri:0, instance:TestCases.TestCases_of_CICA@279fedbd]" started-at="2024-03-19T18:03:55 IST" name="teardown1" finished-at="2024-03-19T18:03:56 IST" duration-ms="1296" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown1 -->

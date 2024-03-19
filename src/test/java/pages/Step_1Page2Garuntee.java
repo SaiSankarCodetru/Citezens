@@ -183,7 +183,7 @@ public class Step_1Page2Garuntee {
 
 		C.Max_Char(driver, FirstName, Error_Message_FirstName, Max_Char,  Max_Error, e, Test.Case1(2), Test.Exp1(2));
 
-		C.Send_verify_Valid_C(driver, FirstName, e, "Travis", Test.Case1(1), Test.Exp1(1));
+		C.Send_verify_Valid_C(driver, FirstName, e, HomePage.S1, Test.Case1(1), Test.Exp1(1));
 
 		C.Max_Char(driver, MiddleName, Error_Message_MiddleName, Max_Char,  Max_Error, e,Test.Case1(5) ,Test.Exp1(5));
 
@@ -193,7 +193,7 @@ public class Step_1Page2Garuntee {
 
 		C.Max_Char(driver, LastName, Error_Message_LastName, Max_Char,  Max_Error, e, Test.Case1(7), Test.Case1(7));
 
-		C.Send_verify_Valid_C(driver, LastName, e, "head",  Test.Case1(6),Test.Exp1(6));
+		C.Send_verify_Valid_C(driver, LastName, e,HomePage.S1 ,  Test.Case1(6),Test.Exp1(6));
 
 		C.Empty_Input(driver, Error_Message_State, Mandate_Error, e,  Test.Case1(11),Test.Exp1(11));		 
 

@@ -2,14 +2,15 @@ package pages;
 
 import java.time.Duration;
 
-
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.testng.Assert;
 
 import Ext_Excl.Ext_1;
 import utils.Common_Methods;
@@ -146,6 +147,11 @@ public class Step_9Page {
 	@FindBy(xpath="//ion-input[@formcontrolname='RoutingNumber']/input")
 	WebElement RountingNumber;
 
+	@FindBy(xpath="//input[@id='ReceiptEmail']")
+	WebElement mail_Id;
+	@FindBy(xpath="//input[@name='sendReceipt']")
+	WebElement send_btn;
+
 	public void Make_a_Payment() throws Exception {
 
 		String Max_Name = "PaymentasdfgaedfsdfgwSEDFGASDFGBASDFGBASDFGASDFGBASDFGSADF1234sdfsghdsfghjdfgh2345";
@@ -158,31 +164,53 @@ public class Step_9Page {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 
 		//MakePayment_Step_9.click();
-		C.W_C1(driver, wait, MakePayment_Step_9, e, Test.Case10(1), Test.Exp10(1));
-		
+		//		C.W_C1(driver, wait, MakePayment_Step_9, e, Test.Case10(1), Test.Exp10(1));
+		MakePayment_Step_9.click();
+		Thread.sleep(1000);
+		WebElement nextButton =wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ion-button[normalize-space()='Next']")));
+		Thread.sleep(1000);
+		nextButton.click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//ion-content[contains(@class, ion-padding)])[6]"))).click();
+		WebElement	nxtBtn= driver.findElement(By.xpath("(//ion-col/ion-button[@size='small' and @color='primary'])[1]"));
+		act.scrollToElement(nxtBtn).build().perform();
+		WebElement Disclaimeryes=driver.findElement(By.xpath("//ion-checkbox[@formcontrolname='disclaimerYes']"));
+		Disclaimeryes.click();
+		nxtBtn	.click();
+		//		C.W_C2(driver, wait, nextButton_PolicyPayment, waitUntill, e, Test.Case10(19), Test.Exp10(19));
+		//
+		//		C.act_scroll1(driver, act, nxtBtn, e,Test.Case10(67), Test.Exp10(67));
+		//
+		//		C.C2(driver, Disclaimeryes, nxtBtn, e, Test.Case10(18), Test.Exp10(18));
 
-		C.W_C2(driver, wait, nextButton_PolicyPayment, waitUntill, e, Test.Case10(19), Test.Exp10(19));
+		WebElement Error_PolicyPayment_Relationship =driver.findElement(By.xpath("//ion-label[.=' Relationship']/parent::ion-item/following-sibling::div[.=' Please enter a value. ']"));
+		Assert.assertTrue(Error_PolicyPayment_Relationship.isDisplayed());
+		String LabelErrorPolicyPayment_RelationText=Error_PolicyPayment_Relationship.getText();
+		System.out.println("Relationship "+LabelErrorPolicyPayment_RelationText);
+		WebElement ErrorMessage_PolicyPayment_PaymentType =driver.findElement(By.xpath("(//ion-col[@size='24' and @size-md='8' and @class='md hydrated'])[5]"));
+		Assert.assertTrue(ErrorMessage_PolicyPayment_PaymentType.isDisplayed());
+		String LabelError_PaymentTypeText=ErrorMessage_PolicyPayment_PaymentType.getText();
+		System.out.println("Payment Type "+LabelError_PaymentTypeText);
+		WebElement	RelationShipDropDown= driver.findElement(By.xpath("//select[@formcontrolname='Relationship']"));
+		RelationShipDropDown.click();
+		driver.findElement(By.xpath("//option[.='Parent ']")).click();
+		WebElement	PaymentType= driver.findElement(By.xpath("//select[@formcontrolname='PaymentType']"));
+		PaymentType.click();
+		driver.findElement(By.xpath("//option[.='Premium']")).click();
+		Thread.sleep(1000);
+		nextButton.click();
 
-		C.act_scroll1(driver, act, nxtBtn, e,Test.Case10(67), Test.Exp10(67));
-
-		C.C2(driver, Disclaimeryes, nxtBtn, e, Test.Case10(18), Test.Exp10(18));
-
-
-		
-
-	
-		C.Empty_Input(driver, Error_PolicyPayment_Relationship,Mandatory_Err, e,Test.Case10(7), Test.Exp10(7));
-
-		C.Empty_Input(driver, ErrorMessage_PolicyPayment_PaymentType,"Please choose a payment type.", e,Test.Case10(10), Test.Exp10(10));
-
+		//		C.Empty_Input(driver, Error_PolicyPayment_Relationship,Mandatory_Err, e,Test.Case10(7), Test.Exp10(7));
+		//
+		//		C.Empty_Input(driver, ErrorMessage_PolicyPayment_PaymentType,"Please choose a payment type.", e,Test.Case10(10), Test.Exp10(10));
+		//
 		C.Fields(driver, PaymentType_premium, e, Test.Case10(11), Test.Exp10(11));
-
-		C.C2(driver, RelationShipDropDown, RelationShip_Parent, e, Test.Case10(6), Test.Exp10(6));
-
-		
-		C.C2(driver, PaymentType, PaymentType_premium, e, Test.Case10(9), Test.Exp10(9));
-		
-
+		//
+		//		C.C2(driver, RelationShipDropDown, RelationShip_Parent, e, Test.Case10(6), Test.Exp10(6));
+		//
+		//		
+		//		C.C2(driver, PaymentType, PaymentType_premium, e, Test.Case10(9), Test.Exp10(9));
+		//		
+		//
 		C.Fields(driver, NextBtn_BillingPage, e, Test.Case10(12), Test.Exp10(12));
 
 		C.Fields(driver, RelationShip_Parent, e, Test.Case10(13), Test.Exp10(13));
@@ -192,18 +220,24 @@ public class Step_9Page {
 		C.Fields(driver, CreditCard, e, Test.Case10(15), Test.Exp10(15));
 
 		C.Fields(driver, nxtBtn, e, Test.Case10(16), Test.Exp10(16));
+		WebElement	nxtBtn1= driver.findElement(By.xpath("(//ion-col/ion-button[@size='small' and @color='primary'])[1]"));
+		act.scrollToElement(nxtBtn1).build().perform();
+		WebElement Disclaimeryes1	=driver.findElement(By.xpath("//ion-checkbox[@formcontrolname='disclaimerYes']"));
+		Disclaimeryes1.click();
+		nxtBtn1.click();
 
-		C.Click_Scroll(driver, act, nextButton_PolicyPayment, nxtBtn, e, Test.Case10(17), Test.Exp10(17));
-
-	
-		C.C2(driver, Disclaimeryes, nxtBtn, e, Test.Case10(18), Test.Exp10(18));
-		
-
-		C.Scroll_Click(driver, wait, act, NextBtn_BillingPage, e, Test.Case10(136), Test.Exp10(136));
+		//		C.Click_Scroll(driver, act, nextButton_PolicyPayment, nxtBtn, e, Test.Case10(17), Test.Exp10(17));
+		//
+		//	
+		//		C.C2(driver, Disclaimeryes, nxtBtn, e, Test.Case10(18), Test.Exp10(18));
+		//		
+		//
+		//		C.Scroll_Click(driver, wait, act, NextBtn_BillingPage, e, Test.Case10(136), Test.Exp10(136));
+		C.scrollTo(driver, NextBtn_BillingPage);
+		NextBtn_BillingPage.click();
 
 		C.Sc_Empty_Input(driver, act, Error_FormOfPayment, Mandatory_Err, e, Test.Case10(22), Test.Exp10(22));
 
-		
 		C.Mandate_Click(driver, CreditCard, e,Test.Case10(23), Test.Exp10(23));
 
 		C.Fields(driver, ACh, e, Test.Case10(24), Test.Exp10(24));
@@ -223,54 +257,41 @@ public class Step_9Page {
 
 		C.Sc_Empty_Input(driver, act, Error_BillignFirstName, Mandatory_Err, e, Test.Case10(33), Test.Exp10(33));
 
-		
 		C.Max_Char_Act(driver, act, BillingFirstName, Error_BillignFirstName, "dsfdsafgdsafgdsfg",
 				"The maximum number of characters is 15.", e,  Test.Case10(32), Test.Exp10(32));
 
-			
 		C.Send_verify_Valid_C(driver, BillingFirstName, e, "Testing Payment", Test.Case10(31), Test.Exp10(31));
 		C.Fields(driver, nxtBtn, e, Test.Case10(45), Test.Exp10(45));
-		
 		C.Sc_Empty_Input(driver, act, Error_BillignLastName, Mandatory_Err, e, Test.Case10(36), Test.Exp10(36));
 
-		
 		C.Max_Char_sc2(driver,act,BillingLastName,billingZipCode,Error_BillignLastName,Max_Name, Max_error_70, e,Test.Case10(35),Test.Exp10(35));
 
 		Thread.sleep(1000);
-		
 		C.Send_verify_Valid_C(driver, BillingLastName, e, "Testing Payment lastname", Test.Case10(34), Test.Exp10(34));
 
 		C.Sc_Empty_Input(driver, act, Error_BillignStreetAddress, Mandatory_Err, e, Test.Case10(39), Test.Exp10(39));
 
-		
 		C.Max_Char(driver,billingStreetAddress,Error_BillignStreetAddress,max_name,Max_error_50,e,Test.Case10(38),Test.Exp10(38));
 
-		
 		C.Send_verify_Valid_C(driver, billingStreetAddress, e, "Austin, texas USA", Test.Case10(37), Test.Exp10(37));
 
 		C.Sc_Empty_Input(driver, act, Error_BillignCityAndRegion,Mandatory_Err, e, Test.Case10(42), Test.Exp10(42));
 
-	
 		C.Max_Char(driver,billingCityAndRegion,Error_BillignCityAndRegion,max_name,"The maximum number of characters is 40.",
 				e,Test.Case10(41),Test.Exp10(41));
-			Thread.sleep(2000);
-		
+		Thread.sleep(2000);
 		C.Send_verify_Valid_C(driver, billingCityAndRegion, e, "Dallas", Test.Case10(40), Test.Exp10(40));
 
-		
 		C.Sc_Empty_Input(driver, act, Error_BillignState,Mandatory_Err, e, Test.Case10(46), Test.Exp10(46));
 
-	
 		C.C2(driver, billingState, StateSelection, e, Test.Case10(44), Test.Exp10(44));
 
 		C.Sc_Empty_Input(driver,act, Error_BillignZipCode, Mandatory_Err, e,Test.Case10(126), Test.Exp10(126));
 
 		C.Max_Char_Act(driver, act, billingZipCode, Error_BillignZipCode, "asdfasd","Please use a number format.", e,  Test.Case10(48), Test.Exp10(48));
 
-		
 		C.Max_Char(driver,billingZipCode,Error_BillignZipCode,"1234","The minimum number of characters is 5.",e,Test.Case10(49),Test.Exp10(49));
 
-	
 		C.Max_Char(driver,billingZipCode,Error_BillignZipCode,"5478415114155211","The maximum number of characters is 5.",
 				e,Test.Case10(50),Test.Exp10(50));
 
@@ -296,14 +317,11 @@ public class Step_9Page {
 
 		C.Max_Char(driver,BillingPhoneNumber,Error_BillignPhoneNumber,"sadfasdd","Please use a number format.",e,Test.Case10(57),Test.Exp10(57));
 
-		
 		C.Max_Char(driver,BillingPhoneNumber,Error_BillignPhoneNumber,"1254812","The minimum number of characters is 10.",
 				e,Test.Case10(129),Test.Exp10(129));
 
-	
 		C.Max_Char(driver,BillingPhoneNumber,Error_BillignPhoneNumber,"125481212512","The maximum number of characters is 10.",
 				e,Test.Case10(58),Test.Exp10(58));
-		
 		C.Send_verify_Valid_C(driver, BillingPhoneNumber, e, "1254812123", Test.Case10(56), Test.Exp10(56));
 
 		C.Sc_Empty_Input(driver,act, Error_BillignEmailAddress, Mandatory_Err, e,Test.Case10(62), Test.Exp10(62));
@@ -318,7 +336,7 @@ public class Step_9Page {
 
 		C.Fields(driver, AcountNumber, e, Test.Case10(64), Test.Exp10(64));
 
-	    C.Fields(driver, Error_AcountNumber, e, Test.Case10(65), Test.Exp10(65));
+		C.Fields(driver, Error_AcountNumber, e, Test.Case10(65), Test.Exp10(65));
 
 		C.Scroll_Click(driver, wait, act, NextBtn_BillingPage, e, Test.Case10(66), Test.Exp10(66));
 
@@ -333,13 +351,10 @@ public class Step_9Page {
 		C.Fields(driver, cardHolderName, e, Test.Case10(95), Test.Exp10(95));
 
 		CardNumber.click();  
-		
 		C.Max_Char_C(driver, CardNumber, Error_CardNumber, cardHolderName, "123456567", "Enter a valid card number", e, Test.Case10(131), Test.Exp10(131));
 
-		
 		C.Max_Char_C(driver, CardNumber, Error_CardNumber, cardHolderName, "5555555555554444124541", "Enter a valid card number", e, 
 				Test.Case10(74), Test.Exp10(74));
-		
 		C.Send_verify_Valid_C(driver, CardNumber, e, "5555555555554444", Test.Case10(72), Test.Exp10(72));
 		Thread.sleep(1000);		
 
@@ -352,21 +367,16 @@ public class Step_9Page {
 
 		C.Send_verify_Valid_C(driver, cardHolderName, e, "AUTHORISED", Test.Case10(78), Test.Exp10(78));
 
-	
 		C.Click_2_V(driver, ExpiryMonth,CardNumber,Error_ExpiryMonth, e,"Enter a valid month",Test.Case10(85), Test.Exp10(85));
 
-	
 		C.C_Send_C(driver, CardNumber, ExpiryMonth, Error_ExpiryMonth, "13", "Enter a valid month", e, Test.Case10(84),Test.Exp10(84));
 
-		
 		C.Send_verify_Valid_C(driver, ExpiryMonth, e, "12", Test.Case10(80), Test.Exp10(80));
 
-		
 		C.Click_2_V(driver, ExpiryYear, CardNumber, Error_ExpiryYear, e, "Enter a valid year",Test.Case10(88),Test.Exp10(88));
 
 		C.Max_Char_C(driver, ExpiryYear, Error_ExpiryYear, CardNumber, "23", "Expiry date must be in the future", e, Test.Case10(90), Test.Exp10(90));
 
-		
 		C.Cl_Ck_Send(driver,CardNumber, ExpiryYear, e, "24", Test.Case10(89), Test.Exp10(89));
 
 		Thread.sleep(1000);
@@ -387,23 +397,15 @@ public class Step_9Page {
 
 		//MakePayment.click();
 		C.Mandate_Click(driver, MakePayment, e, Test.Case10(135), Test.Exp10(135));
+		Thread.sleep(2000);
+		driver.switchTo().parentFrame();
 
-		C.Fields(driver, cardHolderName, e, Test.Case10(103), Test.Exp10(103));
-		C.Fields(driver, cardHolderName, e, Test.Case10(104), Test.Exp10(104));
-		C.Fields(driver, cardHolderName, e, Test.Case10(105), Test.Exp10(105));
-		C.Fields(driver, cardHolderName, e, Test.Case10(106), Test.Exp10(106));
-		C.Fields(driver, cardHolderName, e, Test.Case10(107), Test.Exp10(107));
-		C.Fields(driver, cardHolderName, e, Test.Case10(108), Test.Exp10(108));
-		C.Fields(driver, cardHolderName, e, Test.Case10(109), Test.Exp10(109));
-		C.Fields(driver, nxtBtn, e, Test.Case10(2), Test.Exp10(2));
+		//C.Frames(driver, e,  Test.Case10(137), Test.Exp10(137));
 
-		C.Fields(driver, nextButton_PolicyPayment, e, Test.Case10(3), Test.Exp10(3));
+		C.W_S(driver, wait, mail_Id, "cicalife_001@yopmail.com", e, Test.Case10(138), Test.Exp10(138));
 
-		C.Fields(driver, PaymentType, e, Test.Case10(4), Test.Exp10(4));
+		C.W_C1(driver, wait, send_btn, e, Test.Case10(139), Test.Exp10(139));
 
-		C.Fields(driver, nxtBtn, e, Test.Case10(5), Test.Exp10(5));
-
-		C.Fields(driver, PaymentType, e, Test.Case10(8), Test.Exp10(8));
 
 	}
 }

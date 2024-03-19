@@ -11,7 +11,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class Excel_Util {
 
-	public String path = "C:\\Users\\Codetru\\Downloads\\Citizens_pom6\\Citizens_Pom1\\TestData\\citizens copy.xlsx";
+	public String path = "C:\\Users\\Codetru\\Downloads\\Citizens_pom6\\Citizens_Pom1\\TestData\\citizens copy 1 (2).xlsx";
 	//public String path = System.getProperty("user.dir")+"\\src\\main\\resources\\Excel class\\Amazon.excel.xlsx";
 
 	public int GetRowCount(String path, int sheetno) throws Exception

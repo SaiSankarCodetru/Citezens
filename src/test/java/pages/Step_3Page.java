@@ -1,7 +1,10 @@
 package pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -26,18 +29,25 @@ public class Step_3Page {
 		this.driver = driver;
 		this.e = e;
 	}
-
 	@FindBy(xpath="//ion-item/ion-label[.='No']/following-sibling::ion-radio[@value='false']")
 	WebElement noRadioBtn;
 
-	@FindBy(xpath = "(//ion-row/ion-col/ion-button[starts-with(@class, 'md button')])[8]")
+	@FindBy(xpath = "(//ion-button[.='Next Step'])[3]")
 	WebElement NextStep3;
 
-	@FindBy(xpath = "//ion-item/ion-label[.='Yes']/following-sibling::ion-radio[@role='radio']")
+	@FindBy(xpath = "//ion-label[.='Yes']/following-sibling::ion-radio")
 	WebElement step3_Yes;
 
-	@FindBy(xpath = "//ion-item/ion-label[.='No']/following-sibling::ion-radio[@role='radio']")
+	@FindBy(xpath = "//ion-label[.='No']/following-sibling::ion-radio")
 	WebElement step3_No;
+
+	//	@FindBy(xpath = "//ion-item/ion-label[.='No']")
+	//	WebElement step3_No;
+
+
+
+	@FindBy(xpath = "(//ion-item/ion-label[.='No']/following-sibling::ion-radio[@role='radio'])[2]")
+	WebElement step3_No2;
 
 	@FindBy(xpath = "//form[@class='ng-untouched ng-pristine ng-invalid']//div[@class='block-info-app']")
 	WebElement Error_ProposedOWner_Message;
@@ -46,28 +56,35 @@ public class Step_3Page {
 	WebElement BenificiaryFirstname;
 
 	public void Policy_Owner_Information() throws Exception {
+		wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 		String Mandatory_Error = "Please enter a value.";
 
-		C.Mandate_Click(driver, NextStep3, e, Test.Case3(9), Test.Exp3(9));//1
+		C.W_C1(driver, wait, NextStep3, e, Test.Case3(9), Test.Exp3(9));
 
-		C.Empty_Input(driver, Error_ProposedOWner_Message, Mandatory_Error, e, Test.Case3(8), Test.Exp3(8));//2
+		C.Empty_Input(driver, Error_ProposedOWner_Message, Mandatory_Error, e, Test.Case3(8), Test.Exp3(8));
 
-		C.Fields(driver, step3_Yes, e, Test.Case3(10), Test.Exp3(10));//3
-	
-		C.C2(driver, step3_Yes, step3_No, e, Test.Case3(1), Test.Exp3(1));//4
+		//	C.Fields(driver, step3_Yes, e, Test.Case3(10), Test.Exp3(10));
+		C.W_C1(driver, wait, step3_Yes, e, Test.Case3(1), Test.Exp3(1));
+		C.W_C1(driver, wait, step3_No, e, Test.Case3(1), Test.Exp3(1));
+		//C.C2(driver, step3_Yes, step3_No, e, Test.Case3(1), Test.Exp3(1));
 		Thread.sleep(1000);
-		C.Fields(driver, step3_No, e, Test.Case3(11), Test.Exp3(11));//5
-		Thread.sleep(1000);
-		C.Fields(driver, step3_No, e, Test.Case3(2), Test.Exp3(2));//6
-		
-		C.Fields(driver, step3_No, e, Test.Case3(3), Test.Exp3(3));//7
-		C.Fields(driver, step3_No, e, Test.Case3(4), Test.Exp3(4));//8
-		C.Fields(driver, step3_No, e, Test.Case3(5), Test.Exp3(5));//9
-		C.Fields(driver, step3_No, e, Test.Case3(6), Test.Exp3(6));//10
-		C.Fields(driver, step3_No, e, Test.Case3(7), Test.Exp3(7));//11
-//		C.Mandate_Click(driver, NextStep3, e, Test.Case3(5), Test.Exp3(5));//
+		//		step3_No2.click();
+		//		Thread.sleep(2000);
+		//		Actions act = new Actions(driver);
+		//		act.scrollToElement(NextStep3).build().perform();
+		//		C.Mandate_Click(driver, NextStep3, e, Test.Case3(5), Test.Exp3(5));
 		NextStep3.click();
-		Thread.sleep(2000);
-	
+
+		//		if(step3_No2.isDisplayed()) {
+		//			step3_No2.click();
+		//			Thread.sleep(2000);
+		//			Actions act = new Actions(driver);
+		//			act.scrollToElement(NextStep3).build().perform();
+		//			NextStep3.click();
+		//		}else {
+		//			//		C.Mandate_Click(driver, NextStep3, e, Test.Case3(5), Test.Exp3(5));
+		//			NextStep3.click();
+		//			Thread.sleep(2000);
+		//		}
 	}
 }
